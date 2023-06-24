@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,9 +23,7 @@ use Illuminate\Support\Facades\Validator;
 // });
 
 
-Route::get('/users', function() {
-  return User::all();
-});
+Route::get('/users', [UserController::class, 'index']);
 
 Route::get('/users/{id}', function(Request $request) {
   return User::find($request->id);
